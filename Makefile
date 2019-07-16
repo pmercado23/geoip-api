@@ -55,6 +55,7 @@ shell_local:
 
 build_kube_docker:
 	docker build -t gcr.io/test-project-245416/geoip-app .
+	docker push gcr.io/test-project-245416/geoip-app
 
 delpoy_kube_service:
 	kubectl create -f deploy/service-def.yaml
