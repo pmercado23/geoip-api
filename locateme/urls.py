@@ -25,7 +25,7 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('status/', views.status),
-    path('where_am_i/<ip0>.<ip1>.<ip2>.<ip3>/', views.locate)
+    path('status/', views.status, name='status'),
+    path('where_am_i/<ip0>.<ip1>.<ip2>.<ip3>/', views.locate, name='locate')
 
 ]

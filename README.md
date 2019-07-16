@@ -123,3 +123,11 @@ Using:
    - Docker: https://docs.docker.com/
    - Kubernetes: https://kubernetes.io/docs/home/
    - Google Cloud Platform: https://cloud.google.com/
+
+# Testing
+
+In when in local dev, run tests by `make test`
+
+These tests are ran from `geoip-api/locateme/quickstart/tests.py`
+
+See Django Tests Docs for more information: https://docs.djangoproject.com/en/2.2/intro/tutorial05/

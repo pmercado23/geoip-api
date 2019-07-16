@@ -56,6 +56,9 @@ showmigrations_local:
 shell_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py shell
 
+test:
+	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py test
+
 
 build_kube_docker:
 	docker build -t gcr.io/test-project-245416/geoip-app .
