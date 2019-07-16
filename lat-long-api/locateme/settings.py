@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-GEOIP_PATH = os.path.join(BASE_DIR,  'geoip')
+GEOIP_PATH = os.path.join(BASE_DIR,  'geoip/GeoLite2-City/GeoLite2-City.mmdb')
 
 
 # Quick-start development settings - unsuitable for production
