@@ -1,5 +1,5 @@
-# HUB Makefile
-# Maintained by: Suraj & Peter
+# Geoip-api Makefile
+# Maintained by: Peter
 
 CURDIR = $(realpath $(dir $(firstword $(MAKEFILE_LIST))))
 
@@ -27,6 +27,9 @@ cleanall:	clean
 
 run:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py runserver
+
+update_db:
+	${CURDIR}/env/bin/python3 ${CURDIR}/setup_db.py
 
 migrations:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py makemigrations

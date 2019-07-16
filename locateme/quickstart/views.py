@@ -1,20 +1,28 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 import geoip2.database
 from django.conf import settings
+from django.http import JsonResponse
 
 
-@api_view(['GET'])
 def status(request):
     """
-    List all code snippets, or create a new snippet.
+    Returns Status when called
     """
     if request.method == 'GET':
         data = {'status': "UP"}
-        return Response(data)
+        return JsonResponse(data)
 
-@api_view(['GET'])
 def locate(request, ip0, ip1, ip2, ip3):
+    """
+    Given IP, uses package geoip2 and calls local DB with a lookup.
+    This returns json:
+    data = {'ip': ip,
+            'country': response.country.name,
+            'city': response.city.name,
+            'subdivisions_most_specific_name': response.subdivisions.most_specific.name,
+            'postal_code': response.postal.code,
+            'latitude': response.location.latitude,
+            'longitude': response.location.longitude }
+    """
 
     if request.method == 'GET':
         ip = "{}.{}.{}.{}".format(ip0, ip1, ip2, ip3)
@@ -23,7 +31,13 @@ def locate(request, ip0, ip1, ip2, ip3):
 
         response = reader.city(ip)
 
-        data = {'ip_given': ip,
-               'latitude': response.location.latitude,
+        data = {'ip': ip,
+                'country': response.country.name,
+                'city': response.city.name,
+                'subdivisions_most_specific_name': response.subdivisions.most_specific.name,
+                'postal_code': response.postal.code,
+                'latitude': response.location.latitude,
                 'longitude': response.location.longitude }
-        return Response(data)
+
+        return JsonResponse(data)
+
