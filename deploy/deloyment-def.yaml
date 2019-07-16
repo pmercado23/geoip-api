@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: geoip-app-deployment
+  labels:
+    app: geoip-app
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: geoip-app-pod
+      app: geoip-app-app
+  template:
+    metadata:
+      name: geoip-app-pod
+      labels:
+        name: geoip-app-pod
+        app: geoip-app-app
+
+    spec:
+      containers:
+        - name: geoip-app
+          image: tpgkiwi/starry:1.0.0
+          ports:
+            - containerPort: 8000

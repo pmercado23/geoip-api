@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: geoip-app-service
+  labels:
+    name: geoip-app-service
+    app: geoip-app-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: voting-app-pod
+    app: demo-voting-app
