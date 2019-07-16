@@ -9,7 +9,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 8000
   selector:
-    name: voting-app-pod
-    app: demo-voting-app
+    name: geoip-app-pod
+    app: geoip-app-app
