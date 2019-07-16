@@ -25,22 +25,28 @@ cleanall:	clean
 	# Nuke the env
 	rm -rf ${CURDIR}/env
 
-run:
+build:
+	docker build -t tpgkiwi/starry:1.0.0 .
+
+run_docker:
+	docker run -it -p 8000:8000 tpgkiwi/starry:1.0.0
+
+run_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py runserver
 
-update_db:
+update_db_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/setup_db.py
 
-migrations:
+migrations_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py makemigrations
 
-migrate:
+migrate_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py migrate
 
-showmigrations:
+showmigrations_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py showmigrations
 
-shell:
+shell_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py shell
 
 
