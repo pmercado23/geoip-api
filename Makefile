@@ -25,7 +25,7 @@ cleanall:	clean
 	# Nuke the env
 	rm -rf ${CURDIR}/env
 
-deploy: build delpoy_kube_deployment delpoy_kube_service
+deploy_gcp: build_kube_docker delpoy_kube_deployment delpoy_kube_service
 
 build:
 	docker build -t tpgkiwi/starry:1.0.0 .
@@ -50,6 +50,11 @@ showmigrations_local:
 
 shell_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py shell
+
+# test-project-245416
+
+build_kube_docker:
+	docker build -t gcr.io/test-project-245416/geoip-app .
 
 delpoy_kube_service:
 	kubectl create -f deploy/service-def.yaml

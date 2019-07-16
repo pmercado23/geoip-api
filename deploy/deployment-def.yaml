@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: geoip-app
-          image: tpgkiwi/starry:1.0.0
+          image: gcr.io/test-project-245416/geoip-app
           ports:
             - containerPort: 8000
