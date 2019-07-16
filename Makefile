@@ -27,6 +27,8 @@ cleanall:	clean
 
 deploy_gcp: build_kube_docker delpoy_kube_deployment delpoy_kube_service delpoy_kube_cron
 
+docker_run: build run_docker
+
 build:
 	docker build -t tpgkiwi/starry:1.0.0 .
 
