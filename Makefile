@@ -25,6 +25,8 @@ cleanall:	clean
 	# Nuke the env
 	rm -rf ${CURDIR}/env
 
+deploy: build delpoy_kube_deployment delpoy_kube_service
+
 build:
 	docker build -t tpgkiwi/starry:1.0.0 .
 
@@ -49,4 +51,8 @@ showmigrations_local:
 shell_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py shell
 
+delpoy_kube_service:
+	kubectl create -f deploy/service-def.yaml
 
+delpoy_kube_deployment:
+	kubectl create -f deploy/deployment-def.yaml
