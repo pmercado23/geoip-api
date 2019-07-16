@@ -15,9 +15,6 @@ cd geoip-api
 
 ```
 
-## Running
-
-### Local non-Docker
 
 Use `Makefile` to install
 
@@ -25,7 +22,14 @@ run `make devinstall`
 
 This will create the required env and install required dependency's.
 
-To run use `make run_local` to run dev server.
+
+## Running
+
+### Local non-Docker
+
+To run use `make local_run` to run dev server on local machine.
+
+This then should be accessible at http://localhost:8000
 
 
 ### Local Docker
@@ -34,13 +38,15 @@ Install Docker for desktop:
 
 Currently developed on Mac: https://docs.docker.com/docker-for-mac/
 
-
 run `make docker_run`
 
 This will build and create a docker Image then deploy
 and run it in a local docker container.
 
-### Google Cloud Platfrom Deploy
+This then should be accessible at http://localhost:8000 or another defined in DockerFile
+
+
+### Google Cloud Platform Deploy
 
 Follow the steps to create a GCP account and create a cluster.
 
@@ -58,7 +64,7 @@ for running on GCP:
 
 run `make delpoy_gcp`
 
-This do the following steps:
+This will do the following steps:
 
 1. Create Docker Image at `gcr.io/test-project-245416/geoip-app`
 2. Push docker image up
@@ -67,10 +73,11 @@ This do the following steps:
     2. Create Service
     3. Create CronJob
 
-4. Verify Deployment by running:
-    1. `kubectl get deployments`
-    2. `kubectl get services`
-    3. `kubectl get cronjobs`
+Verify Deployment by running:
+
+1. `kubectl get deployments`
+2. `kubectl get services`
+3. `kubectl get cronjobs`
 
 
 # Usage
@@ -79,7 +86,9 @@ Live example url:   http://35.238.204.176/status
 
 `http://35.238.204.176/where_am_i/<IPv4>/`
 
-Given an IPv4, the api returns information about the given IP via MaxMind GeoLite2 database, downloadable here: https://dev.maxmind.com/geoip/geoip2/geolite2/
+Given an IPv4, the api returns information about the given IP via MaxMind GeoLite2 database as a json blob.
+
+downloadable here: https://dev.maxmind.com/geoip/geoip2/geolite2/
 
 Example:
 

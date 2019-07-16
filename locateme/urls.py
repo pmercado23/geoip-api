@@ -28,5 +28,4 @@ urlpatterns = [
     path('status/', views.status),
     path('where_am_i/<ip0>.<ip1>.<ip2>.<ip3>/', views.locate)
 
-
 ]

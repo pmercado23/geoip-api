@@ -29,13 +29,16 @@ deploy_gcp: build_kube_docker delpoy_kube_deployment delpoy_kube_service delpoy_
 
 docker_run: build run_docker
 
+local_run: update_db_local run_server_local
+
 build:
 	docker build -t tpgkiwi/starry:1.0.0 .
+	docker push tpgkiwi/starry:1.0.0
 
 run_docker:
 	docker run -it -p 8000:8000 tpgkiwi/starry:1.0.0
 
-run_local:
+run_server_local:
 	${CURDIR}/env/bin/python3 ${CURDIR}/manage.py runserver
 
 update_db_local:
