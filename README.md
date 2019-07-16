@@ -103,3 +103,14 @@ Example:
 {"ip": "65.49.253.128", "country": "United States", "city": "Kalamazoo", "subdivisions_most_specific_name": "Michigan", "postal_code": "49009", "latitude": 42.2789, "longitude": -85.6904}%
 
 ```
+
+# Development
+
+Using:
+- Language: Python3.6 https://docs.python.org/3.6/
+- Framework: Django 2.2.3 https://docs.djangoproject.com/en/2.2/
+- Packages: geoip2 2.9.0 https://www.maxmind.com/en/geoip-demo, requests 2.22.0 https://2.python-requests.org/en/master/
+- Deployment:
+   - Docker: https://docs.docker.com/
+   - Kubernetes: https://kubernetes.io/docs/home/
+   - Google Cloud Platform: https://cloud.google.com/
