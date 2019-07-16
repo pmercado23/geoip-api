@@ -1,0 +1,22 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: update-geoip-app-cron
+spec:
+  schedule: "0 0 * * 0"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: geoip-app-app
+        spec:
+          containers:
+           - name: geoip-app
+             image: gcr.io/test-project-245416/geoip-app
+             ports:
+              - containerPort: 8000
+
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
