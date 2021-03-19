@@ -1,4 +1,4 @@
 Django== 2.2.3
-djangorestframework==3.10.0
+djangorestframework==3.11.2
 geoip2==2.9.0
 requests==2.22.0
